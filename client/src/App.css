@@ -1,0 +1,1635 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Authentication Styles */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.auth-form {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+button {
+  background: #e74c3c;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: #c0392b;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background: #ffe6e6;
+  color: #d00;
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  border: 1px solid #ffcccc;
+}
+
+.success-message {
+  background: #e6ffe6;
+  color: #0a0;
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccffcc;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+}
+
+.navbar {
+  background: #2c3e50;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand h2 {
+  color: #ecf0f1;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-btn {
+  background: transparent;
+  color: #bdc3c7;
+  border: 1px solid #34495e;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.nav-btn:hover {
+  background: #34495e;
+  color: #ecf0f1;
+}
+
+.nav-btn.active {
+  background: #e74c3c;
+  color: white;
+  border-color: #e74c3c;
+}
+
+.logout-btn {
+  background: #dc3545;
+}
+
+.logout-btn:hover {
+  background: #c82333;
+}
+
+.dashboard-content {
+  padding: 2rem;
+}
+
+.welcome-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.welcome-section h3 {
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+/* Profile Styles */
+.profile-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-form {
+  max-width: 600px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cancel-btn {
+  background: #6c757d;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  margin-left: 10px;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.delete-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+}
+
+.verification-section {
+  margin: 15px 0;
+}
+
+.verification-section input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.confirmation-section {
+  margin: 15px 0;
+}
+
+.checkbox-section {
+  margin: 20px 0;
+}
+
+.checkbox-group {
+  margin-bottom: 15px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.checkbox-label span {
+  line-height: 1.4;
+}
+
+.checkbox-help {
+  color: #666;
+  font-size: 12px;
+  margin-left: 26px;
+  display: block;
+  margin-top: 5px;
+}
+
+.confirm-delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.confirm-delete-btn:hover {
+  background: #c82333;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.dashboard-home {
+  padding: 20px;
+}
+
+.welcome-hero {
+  text-align: center;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 40px 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.welcome-hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.info-card h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.info-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.quick-actions {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quick-actions h3 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.action-btn {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.edit-btn {
+  background: #28a745;
+}
+
+/* Blood Donate Styles */
+.blood-donate-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.add-btn {
+  background: #28a745;
+}
+
+.form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.donations-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.donation-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.donation-info h4 {
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.donation-info p {
+  margin-bottom: 0.25rem;
+}
+
+.available {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.unavailable {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.donation-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.delete-btn {
+  background: #dc3545;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Blood Requests Styles */
+.blood-requests-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.refresh-btn {
+  background: #17a2b8;
+}
+
+.requests-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.request-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.request-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.urgency-badge {
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.request-info p {
+  margin-bottom: 0.5rem;
+}
+
+.status-pending {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.status-accepted {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.request-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.accept-btn {
+  background: #28a745;
+}
+
+.complete-btn {
+  background: #17a2b8;
+}
+
+.reject-btn {
+  background: #dc3545;
+}
+
+.reject-btn:hover {
+  background: #c82333;
+}
+
+.no-requests {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+/* SOS Button Styles */
+.sos-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.sos-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.emergency-contacts {
+  display: grid;
+  gap: 1rem;
+}
+
+.emergency-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.contact-info h4 {
+  margin-bottom: 0.25rem;
+}
+
+.call-btn {
+  background: #28a745;
+  padding: 0.5rem 1rem;
+}
+
+.sos-note {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fff3cd;
+  border-radius: 5px;
+  border: 1px solid #ffeaa7;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+/* Seeker Dashboard Styles */
+.notification-btn {
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #dc3545;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Available Blood Styles */
+.available-blood-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filter-section {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter-select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.donations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.blood-group-badge {
+  background: #dc3545;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.donor-info {
+  margin-bottom: 1rem;
+}
+
+.donor-info h4 {
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.request-btn {
+  background: #28a745;
+  width: 100%;
+  padding: 0.75rem;
+}
+
+.request-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* My Requests Styles */
+.my-requests-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.blood-group-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-info {
+  display: flex;
+  align-items: center;
+}
+
+.status-badge {
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.donor-info {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.action-note {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.success-note {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.completed-note {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* Notifications Styles */
+.notifications-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.notification-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.notification-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.section-title {
+  color: #667eea;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.mark-all-read-btn {
+  background: #6c757d;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+.notifications-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.notification-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.notification-card.unread {
+  background: #f8f9ff;
+  border: 1px solid #667eea;
+}
+
+.notification-card.read {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+}
+
+.notification-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  text-align: center;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.notification-time {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.donor-contact-info {
+  background: #e9ecef;
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.unread-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #667eea;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.unread-dot {
+  width: 8px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 50%;
+}
+
+.notification-settings {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ddd;
+}
+
+.settings-options {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* AI Chat Styles */
+.ai-chat-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.quick-questions {
+  margin-bottom: 1rem;
+}
+
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.quick-btn {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+}
+
+.quick-btn:hover {
+  background: #667eea;
+  color: white;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.message {
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 70%;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.message.user .message-content {
+  background: #667eea;
+  color: white;
+}
+
+.message.bot .message-content {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+}
+
+.message-text {
+  margin-bottom: 0.5rem;
+  white-space: pre-line;
+}
+
+.message-time {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 50%;
+  animation: typing 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-10px); }
+}
+
+.chat-input {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.chat-input textarea {
+  flex: 1;
+  resize: none;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.75rem;
+}
+
+.send-btn {
+  background: #667eea;
+  padding: 0.75rem 1.5rem;
+}
+
+.emergency-notice {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Emergency Services Styles */
+.emergency-services-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.emergency-contacts-section {
+  margin-bottom: 2rem;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.emergency-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.contact-details {
+  flex: 1;
+}
+
+.contact-number {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.city-selection {
+  margin: 2rem 0;
+}
+
+.city-select {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.services-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.service-btn {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
+
+.hospitals-btn {
+  background: #28a745;
+}
+
+.blood-banks-btn {
+  background: #dc3545;
+}
+
+.services-list {
+  margin-top: 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.service-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: white;
+}
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.emergency-badge {
+  background: #dc3545;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.hours-badge {
+  background: #28a745;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.service-details {
+  margin-bottom: 1rem;
+}
+
+.service-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.directions-btn {
+  background: #17a2b8;
+  flex: 1;
+}
+
+.emergency-tips {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ddd;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tip-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.tip-card h5 {
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.tip-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.tip-card li {
+  margin-bottom: 0.5rem;
+}
+
+/* Location-Based Services Styles */
+.location-services-section {
+  background: #f8f9ff;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  border: 2px solid #667eea;
+}
+
+.location-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.location-btn {
+  background: #667eea;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.location-btn:hover {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+.location-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.location-status {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #c3e6cb;
+  text-align: center;
+  font-weight: bold;
+}
+
+.nearby-services-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.maps-btn {
+  background: #17a2b8;
+  color: white;
+}
+
+.nearby-card {
+  border-left: 4px solid #667eea;
+}
+
+.distance-badge {
+  background: #667eea;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* City Search Styles */
+.city-search-section {
+  background: #fff3cd;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  border: 2px solid #ffc107;
+}
+
+.city-selection {
+  margin-top: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.city-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: white;
+}
+
+.city-select:disabled {
+  background: #f8f9fa;
+  color: #6c757d;
+}
+
+.maps-btn {
+  background: #ffc107;
+  color: #212529;
+}
+
+.maps-btn:hover {
+  background: #e0a800;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Seeker Account Manager Styles */
+.seeker-account-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.no-seeker-account {
+  text-align: center;
+  padding: 2rem;
+}
+
+.create-seeker-btn {
+  background: #28a745;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.has-seeker-account {
+  max-width: 600px;
+}
+
+.seeker-info-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid #dee2e6;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.status-badge {
+  background: #28a745;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.account-details {
+  margin-bottom: 1.5rem;
+}
+
+.account-details p {
+  margin-bottom: 0.5rem;
+}
+
+.access-seeker-btn {
+  background: #e74c3c;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.seeker-features {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.seeker-features h4 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.seeker-features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.seeker-features li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.seeker-features li:last-child {
+  border-bottom: none;
+}
+
+.return-donor-btn {
+  background: #17a2b8;
+  color: white;
+  border: 1px solid #17a2b8;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.return-donor-btn:hover {
+  background: #138496;
+  border-color: #138496;
+}
+
+/* Donor Account Manager Styles */
+.donor-account-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.no-donor-account {
+  text-align: center;
+  padding: 2rem;
+}
+
+.create-donor-btn {
+  background: #e74c3c;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.has-donor-account {
+  max-width: 600px;
+}
+
+.donor-info-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid #dee2e6;
+}
+
+.access-donor-btn {
+  background: #e74c3c;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.donor-features {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.donor-features h4 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.donor-features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.donor-features li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.donor-features li:last-child {
+  border-bottom: none;
+}
+
+.return-seeker-btn {
+  background: #28a745;
+  color: white;
+  border: 1px solid #28a745;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.return-seeker-btn:hover {
+  background: #218838;
+  border-color: #218838;
+}
+
+/* Phone Input Group Styles */
+.phone-input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.country-code-select {
+  flex: 0 0 140px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.phone-number-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .phone-input-group {
+    flex-direction: column;
+  }
+  
+  .country-code-select {
+    flex: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .nearby-services-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .donation-card,
+  .request-card {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .donation-actions,
+  .request-actions {
+    flex-direction: row;
+  }
+
+  .donations-grid,
+  .services-grid,
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-row {
+    grid-template-columns: 1fr;
+  }
+
+  .services-buttons {
+    flex-direction: column;
+  }
+
+  .service-actions {
+    flex-direction: column;
+  }
+
+  .ai-chat-container {
+    height: 60vh;
+  }
+
+  .message-content {
+    max-width: 85%;
+  }
+}
