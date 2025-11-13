@@ -9,10 +9,18 @@ const router = express.Router();
 // Register
 router.post('/register', async (req, res) => {
   try {
+    console.log('Registration request received:', req.body);
     const { name, email, password, userType } = req.body;
+
+    // Validate required fields
+    if (!name || !email || !password || !userType) {
+      console.log('Missing required fields');
+      return res.status(400).json({ message: 'All fields are required' });
+    }
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
+      console.log('User already exists:', email);
       return res.status(400).json({ message: 'User already exists' });
     }
 
@@ -26,6 +34,7 @@ router.post('/register', async (req, res) => {
     });
 
     await user.save();
+    console.log('User saved successfully:', user._id);
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
 
@@ -39,7 +48,8 @@ router.post('/register', async (req, res) => {
       }
     });
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    console.error('Registration error:', error);
+    res.status(500).json({ message: 'Server error: ' + error.message });
   }
 });
 
