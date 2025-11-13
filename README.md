@@ -357,10 +357,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 For support, questions, or collaboration:
 - 👨‍💻 **Developer:** Prince Kumar
-- 📧 **Email:** prince.kumar.dev@gmail.com
+- 📧 **Email:** ma.prince.kumar@gmail.com
 - 🐛 **Issues:** [GitHub Issues](https://github.com/Prince-kumar1/life-connect-blood-donation/issues)
 - 📖 **Documentation:** [Project Wiki](https://github.com/Prince-kumar1/life-connect-blood-donation/wiki)
-- 💼 **LinkedIn:** [Connect with Prince](https://linkedin.com/in/prince-kumar-dev)
+- 💼 **LinkedIn:** [Connect with Prince]https://www.linkedin.com/in/prince-kumar-626669251/
 
 ## 🌟 Project Stats
 
